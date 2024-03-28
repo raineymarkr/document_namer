@@ -13,8 +13,10 @@ def generate_string():
     date = date_entry.get()
     usace = usace_entry.get()
     
+    date = date.replace('/', '-')
+
     # Format the string as per your requirement
-    result_string = f"{mid_num} {file_num} {county_num} {date} HIST {scanner} {usace}"
+    result_string = f"{mid_num} {file_num.upper()} {county_num} {date} HIST {scanner.upper()} {usace.upper()}"
     
     # Update the entry widget to show the result
     result_entry.delete(0, tk.END)  # Clear existing content
