@@ -4,8 +4,6 @@ import pyautogui
 import pygetwindow as gw
 import time
 
-
-
 def generate_string():
     # Retrieve the values from the input boxes
     mid_num = mid_entry.get()
@@ -27,7 +25,7 @@ def generate_string():
     root.clipboard_clear()
     root.clipboard_append(result_string)
 
-    # Replace 'Your Window Title Here' with the exact title of the Scandall 21 window
+    #Begin scan process
     window_title = 'Untitled - ScandAll 21'
     try:
         # Get the window and bring it to the foreground
@@ -57,7 +55,6 @@ mid_entry = ttk.Entry(root,)
 mid_entry.grid(column=1, row=0, padx=10, pady=10)
 mid_entry.insert(0,'xxx')
 
-# Create and place the labels and entry widgets for inputs
 file_label = ttk.Label(root, text="File #")
 file_label.grid(column=0, row=1, padx=10, pady=10)
 file_entry = ttk.Entry(root)
@@ -87,13 +84,10 @@ usace_entry.grid(column=1, row=5, padx=10, pady=10)
 generate_button = ttk.Button(root, text="Generate", command= generate_string)
 generate_button.grid(column=0, row=6, columnspan=2, pady=10)
 
-
+# Entry label and widget to display the result
 result_label = ttk.Label(root, text="Name")
 result_label.grid(column=0, row=7, padx=10, pady=10)
-# Entry widget to display the result, set to read-only mode
 result_entry = ttk.Entry(root)
-# To make the Entry widget read-only, we need to create a variable
-# and associate it with the widget. The widget will display the value of this variable.
 result_var = tk.StringVar()
 result_entry.config(textvariable=result_var)
 result_entry.grid(column=0, row=7, columnspan=2,pady=10)
